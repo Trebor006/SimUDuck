@@ -10,6 +10,7 @@ public class RedheadDuck extends Duck {
     quackBehavior = new Quack();
   }
 
+  @Override
   public void display() {
     System.out.println("Displaying Redhead Duck");
   }
