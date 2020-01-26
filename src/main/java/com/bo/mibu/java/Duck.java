@@ -1,10 +1,32 @@
 package com.bo.mibu.java;
 
+import com.bo.mibu.java.fly.FlyBehavior;
+import com.bo.mibu.java.quack.QuackBehavior;
+
 public abstract class Duck {
 
+  FlyBehavior flyBehavior;
+  QuackBehavior quackBehavior;
+
   public void swim() {
-    System.out.println("Swim..");
+    System.out.println("All ducks float, even decoys!");
   }
 
   public abstract void display();
+
+  public void performQuack() {
+    quackBehavior.quack();
+  }
+
+  public void performFly() {
+    flyBehavior.fly();
+  }
+
+  public void setFlyBehavior(FlyBehavior flyBehavior) {
+    this.flyBehavior = flyBehavior;
+  }
+
+  public void setQuackBehavior(QuackBehavior quackBehavior) {
+    this.quackBehavior = quackBehavior;
+  }
 }

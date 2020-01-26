@@ -1,22 +1,14 @@
 package main;
 
+import com.bo.mibu.java.Duck;
 import com.bo.mibu.java.MallardDuck;
-import com.bo.mibu.java.RedheadDuck;
 
 public class Main {
 
   public static void main(String[] args) {
 
-    MallardDuck mallardDuck = new MallardDuck();
-    mallardDuck.quack();
-    mallardDuck.swim();
-    mallardDuck.display();
-    mallardDuck.fly();
-
-    RedheadDuck redheadDuck = new RedheadDuck();
-    redheadDuck.quack();
-    redheadDuck.swim();
-    redheadDuck.display();
-    redheadDuck.fly();
+    Duck mallardDuck = new MallardDuck();
+    mallardDuck.performQuack();
+    mallardDuck.performFly();
   }
 }
