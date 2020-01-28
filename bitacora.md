@@ -66,9 +66,8 @@ Class RubberDuck extends Duck
 ~~~
 
 ## Implementación 4. ##
-
-- El agregar el método fly() en Duck hizo que RubberDuck pueda volar lo cual es un error.
-- por lo que la opción elegida fue sobreescribir fly en RubberDuck.
+- Tener de esta manera la estructura hizo que el código sea frágil por lo que  al agregar el método fly() en Duck hizo que RubberDuck pueda volar lo cual es un error.
+- Y para solucionar este error la opción elegida fue sobreescribir fly en RubberDuck.
 ~~~
 Class Duck
  void quack() 
@@ -95,6 +94,8 @@ Class RedHeadDuck extends Duck
 ## Implementación 5. ##
 
 - Se agregó un nuevo tipo de Pato DecoyDuck, que tiene un comportamiento similar al de RubberDuck.
+- Al agregar el nuevo tipo de Pato hizo que se duplicara el código, lo que va en contra de DRY.
+ además del principio de segregación de interfaces, ya que nadie debe estar obligado a implementar.
 ~~~
 Class Duck
  void quack() 
@@ -130,11 +131,11 @@ Class RubberDuck extends Duck
 
 ## Implementación 6. ##
 
-- Se crearon las interfaces Flyable y Quackable, que hizo que se duplicara el código de fly.
+- Se crearon las interfaces Flyable y Quackable, que hizo que se duplicara el código de fly.  (DRY)
 - Se moficaron las clases Duck, quitando los metodos fly() y quack()
 - en MallardDuck y en RedHeadDuck se implementó las interfaces Flyable y Quackable y se implementarion los metodos quack() y fly()
 - en la clase RubberDuck se implementó la interfaz Quackable y el método quack()
-- en la clase DecoyDuck se  
+- Se quizo mejorar aplicando ISP.
 ~~~
 
 * Interfaz Flyable
@@ -177,6 +178,11 @@ Class RubberDuck extends Duck
 - Se crearon las clases Quack, Squeak y MuteQuack
 - Se agregaron los campos QuackBehavior y FlyBehavior dentro de la clase Duck.
 - En los constructores de cada tipo de pato se definió el comportamiento de cada tipo
+- En resumen se aplicó 
+  ISP al segregar las interfaces
+  SRP al tener clases que implementan estas interfaces
+  LSP al tener un objeto de la Inteface FlyBehavior y QuackBehavior en la clase Duck
+  OCP ya que se puede extender mas de un comportamiento
 ~~~
 
 * Interfaz FlyBehavior
@@ -244,6 +250,7 @@ Class RubberDuck extends Duck
 ## Implementación 8. ##
 
 - En la clase Duck se agregarón los métodos para poder settear en momento de ejecución los comportamientos de FlyBehavior y QuackBehavior
+  Se aplica OCP ya que se puede extender mas de un comportamiento haciendo que el comportamiento sea dinámico
 ~~~
 
  Interfaz FlyBehavior
